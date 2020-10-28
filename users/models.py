@@ -25,6 +25,8 @@ class Profile(models.Model):
   bio = models.CharField(max_length=255,blank=True,null=True)
   birth_date = models.DateField(null=True, blank = True)
   profile_pic = models.ImageField(default='default.jpg', upload_to='profile_pics')
+  contact = models.CharField(max_length=144, blank=True, null=True)
+  projects = models.URLField(max_length=200, blank=True)
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)
 
