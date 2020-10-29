@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %} 
+<div>
+  <h1>Add Review..</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ book.id}}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-lg btn-warning btn-block">Submit your review..</button>
+  </form>
+</div>
+{% endblock content %}

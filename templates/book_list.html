@@ -15,9 +15,24 @@
     <p><strong>Project details:</strong><br>
     <p>{{ book.description }}</p>
     <p><strong>Website: <a href="{{ book.details }}">{{ book.details }}</a></strong></p>
-    <div>
-      <button class="btn btn-warning btn-lg btn-block"><h2><a href="{% url 'book_detail' book.pk %}">Vote</a></h2></button><br><hr><br>
-    </div>
+
+<hr>
+<h4>Reviews..</h4>
+{% if not book.reviews.all %}
+No reviews yet...<br>
+{% else %}
+<hr><br>
+{% for review in book.reviews.all %}
+<strong> {{ review.author }} had this to say...</strong><br>{{ review.review }} <br><br>
+{% endfor%}
+{% endif %}
+<br>
+<a href="{% url 'review' book.pk %}">Add your review..</a>
+<br>
+<br>
+<div>
+  <button class="btn btn-warning btn-lg btn-block"><h2><a href="{% url 'book_detail' book.pk %}">Vote</a></h2></button><br>
+</div>
 
 {% endfor %}
 

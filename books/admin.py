@@ -1,10 +1,13 @@
 from django.contrib import admin
-from .models import Book
+from .models import Book, Review
 
-# class BookAdmin(admin.ModelAdmin):
+class ReviewInline(admin.TabularInline): 
+  model = Review
 
-#   list_display ('title', 'author', 'cover', 'description', 'details')
+class BookAdmin(admin.ModelAdmin):
+  inlines = [ReviewInline,]
+  list_display = ('title', 'author', 'description')
 
+admin.site.register(Book, BookAdmin)
 
-admin.site.register(Book)
 

@@ -1,13 +1,20 @@
 {% extends '_base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<div class="book-detail">
 
 <strong><h2>Author - {{ book.author }}</h2></h2></strong>
 <p><img src="{{ book.cover.url }}" alt="#" width=400, height=500></p>
 <p><strong>Project details:</strong><br>
 <p>{{ book.description }}</p>
 <p><strong>Website: <a href="{{ book.details }}">{{ book.details }}</a></strong></p>
-<div>
-</div>
+
+<h2>Reviews</h2><br>
+{% for review in book.reviews.all %}
+<strong> {{ review.author }}</strong><br>{{ review.review }} <br><br>
+{% endfor%}
+
+
+
+
 {% endblock content %}
