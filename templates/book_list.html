@@ -1,0 +1,24 @@
+{% extends '_base.html' %}
+{% block title %}Books{% endblock title %}
+{% block content %}
+{% for book in book_list %}
+
+
+    <strong>
+      <p>Title - {{ book.title }}</p>
+    </strong>
+    <strong>
+      <p>Author - {{ book.author }}</p>
+      </p>
+    </strong>
+    <p><img src="{{ book.cover.url }}" alt="#" width=400, height=500></p>
+    <p><strong>Project details:</strong><br>
+    <p>{{ book.description }}</p>
+    <p><strong>Website: <a href="{{ book.details }}">{{ book.details }}</a></strong></p>
+    <div>
+      <button class="btn btn-warning btn-lg btn-block"><h2><a href="{% url 'book_detail' book.pk %}">Vote</a></h2></button><br><hr><br>
+    </div>
+
+{% endfor %}
+
+{% endblock content %}
