@@ -19,21 +19,26 @@
 <hr>
 <h4>Reviews..</h4>
 {% if not book.reviews.all %}
-No reviews yet...<br>
+No reviews yet...<br><br>
 {% else %}
-<hr><br>
+<br>
 {% for review in book.reviews.all %}
 <strong> {{ review.author }} had this to say...</strong><br>{{ review.review }} <br><br>
+<!-- Vote tally..  <br><br> -->
+Design {{ review.design }} | usability {{ review.usability }} | Content {{ review.content }} | overall score {{ review.all.count }} <br><br>
 {% endfor%}
+{{ review.design.all.count }}  
 {% endif %}
-<br>
-<a href="{% url 'review' book.pk %}">Add your review..</a>
-<br>
-<br>
+
 <div>
-  <button class="btn btn-warning btn-lg btn-block"><h2><a href="{% url 'book_detail' book.pk %}">Vote</a></h2></button><br>
+  <button class="btn btn-warning btn-lg btn-block"><h2><a href="{% url 'review' book.pk %}">Vote</a></h2></button><br>
 </div>
+<br>
+
+<hr>
+
 
 {% endfor %}
-
 {% endblock content %}
+
+

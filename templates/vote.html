@@ -1,0 +1,12 @@
+{% extends '_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Vote{% endblock title %}
+{% block content %} 
+<h1>Vote for your favourite book..</h1> 
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+{{ form|crispy }}
+<button type="submit" class="btn btn-lg btn-warning btn-block">Vote</button>
+</form>
+{% endblock content %}

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django import forms
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
-from django.views.generic.edit import CreateView 
+from django.views.generic.edit import CreateView, UpdateView
 
 # Create your views here.
 from django.views.generic import ListView, DetailView
@@ -22,7 +22,7 @@ class BookDetailView(DetailView):
 class ReviewForm(forms.ModelForm):
   class Meta:
     model = Review
-    fields = ('author', 'review')
+    fields = ('author', 'review', 'design', 'usability', 'content')
 
 @login_required
 def add_review(request, pk):
@@ -48,4 +48,15 @@ class BookNewEntryView(CreateView):
   model = Book
   template_name = 'new_entry.html' 
   fields = ['title', 'author', 'cover', 'description', 'details']
+
+def  avg_vote (request, pk):
+  book = get_object_or_404(Book, pk=pk)
+  if request.method == 'GET':
+    tally = design = book.review.design.count()
+  return tally
+  
+
+
+
+
 
