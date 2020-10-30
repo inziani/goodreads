@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     # third party installations 
     'bootstrap4',
     'crispy_forms', 
+    'rest_framework',
+    'api.apps.ApiConfig',
 ]
 
 # django-crispy-forms 

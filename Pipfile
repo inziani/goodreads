@@ -13,6 +13,7 @@ python-decouple = "*"
 dj-database-url = "*"
 django-bootstrap4 = "*"
 django-crispy-forms = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.8"

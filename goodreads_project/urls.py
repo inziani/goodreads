@@ -34,5 +34,8 @@ urlpatterns = [
     path('accounts/', include('users.urls')),
     path('books/', include('books.urls')),
     path('', include('pages.urls')),
+
+    # api urls
+    path('api/', include('api.urls')),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 

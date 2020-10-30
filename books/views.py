@@ -3,11 +3,12 @@ from django import forms
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 from django.views.generic.edit import CreateView, UpdateView
-
-# Create your views here.
 from django.views.generic import ListView, DetailView
 from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.decorators import login_required
+from django.db.models import Avg, Count
+
+
 from .models import Book, Review
 
 class BookListView(ListView): 
@@ -37,11 +38,6 @@ def add_review(request, pk):
   else:
     form = ReviewForm()
   return render(request, 'review.html', {'form': form})
-
-@login_required
-def get_reviews(request, pk):
-  reviews = Book.reviews.all()
-  return reviews
 
 
 class BookNewEntryView(CreateView):
