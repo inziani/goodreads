@@ -14,6 +14,9 @@ dj-database-url = "*"
 django-bootstrap4 = "*"
 django-crispy-forms = "*"
 djangorestframework = "*"
+gunicorn = "*"
+whitenoise = "*"
+django-on-heroku = "*"
 
 [requires]
 python_version = "3.8"
