@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
+import dj_database_url
 from decouple import config, Csv
 from pathlib import Path
 
@@ -120,6 +121,8 @@ else:
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
+
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 
