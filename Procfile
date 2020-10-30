@@ -1,1 +1,1 @@
-web: gunicorn goodreads_project.wsgi --log-file -
+web: gunicorn goodreads_project.wsgi 
