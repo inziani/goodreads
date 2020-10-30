@@ -33,8 +33,8 @@ This is a book awards project. Users can log in and submit their favourite books
 
 - webpage URL: To get to this webpage fist you need to get to my github repository. The link to my github Repository is: https://github.com/inziani/goodreads
 
-- Book API Details - http://127.0.0.1:8000/api/
-- Profile API  Details - http://127.0.0.1:8000/api/profile/
+- Book API Details - https://lamlavsop.herokuapp.com/api/
+- Profile API  Details - https://lamlavsop.herokuapp.com/api/profile/
 
 - git clone project.
 
